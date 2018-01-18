@@ -1,0 +1,30 @@
+{
+  "name": "match-",
+  "version": "1.0.0",
+  "description": "matching app",
+  "main": "server.js",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "express": "^4.16.2",
+    "path": "^0.12.7"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "test this",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Ruha-RP/Match-.git"
+  },
+  "keywords": [
+    "node",
+    "express"
+  ],
+  "author": "Ruha Peera",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Ruha-RP/Match-/issues"
+  },
+  "homepage": "https://github.com/Ruha-RP/Match-#readme"
+}
