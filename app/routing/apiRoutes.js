@@ -32,15 +32,13 @@ module.exports = function(app) {
 
 	console.log(newComfortFood);
 
-	if (comfortFoodArray.length < 5) {
 
-		comfortFoodArray.push(newComfortFood);
+	comfortFoodArray.push(newComfortFood);
 
-		res.json(true);
+	res.json(true);
 
-		console.log("Food logged!");
+	console.log("Food logged!");
 
-	}
 
 	
 });
