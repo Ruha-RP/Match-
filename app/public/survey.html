@@ -200,8 +200,9 @@
 <!-- ========== -->
 <div id="modal1" class="modal">
     <div class="modal-content">
-      <h4>Alternate Comfort Food</h4>
-      <p>A bunch of text</p>
+      <h5>Alternate Comfort Food</h5>
+      <h3>Best Match: <strong><span id="best_match"></span></strong></h3>
+      <p id="user_entry">Your Choice: </p>
     </div>
     <div class="modal-footer">
       <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Close</a>
@@ -227,6 +228,7 @@
   	  //preventing the form from auto-submitting	
       event.preventDefault();
 
+      $("#user_entry").append($("#food_name").val());
     
       //new variable that will hold the information
       var newComfortFood = {
@@ -245,6 +247,8 @@
   			$("#difficulty").val(),
   		]
       };
+
+      $
 
       //posting to the api
       $.post("/api/new", newComfortFood)
