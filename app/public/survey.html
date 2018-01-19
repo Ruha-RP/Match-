@@ -248,16 +248,10 @@
   		]
       };
 
-      $
-
       //posting to the api
       $.post("/api/new", newComfortFood)
       .then(function(data) {
         console.log(data);
-
-        if (data) {
-          alert("Your entry made it to the comfort food list!");
-        }
 
       });
     });
