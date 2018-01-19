@@ -25,4 +25,24 @@ module.exports = function(app) {
 
 	});
 
-}
+
+	app.post("/api/new", function(req, res){
+
+	var newComfortFood = req.body;
+
+	console.log(newComfortFood);
+
+	if (comfortFoodArray.length < 5) {
+
+		comfortFoodArray.push(newComfortFood);
+
+		res.json(true);
+
+		console.log("Food logged!");
+
+	}
+
+	
+});
+
+};

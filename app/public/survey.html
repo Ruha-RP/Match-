@@ -169,7 +169,7 @@
 <!-- SUBMIT BUTTON -->
 
 	<div class="row center">
-       	<button class="btn waves-effect waves-light amber darken-3 black-text" type="submit" name="action">Submit
+       	<button id="add-btn" class="btn waves-effect waves-light amber darken-3 black-text" type="submit" name="action">Submit
     		<i class="material-icons right">local_dining</i>
   		</button>
     </div>
@@ -199,6 +199,32 @@
 	$(document).ready(function() {
     $('select').material_select();
   	});
+
+	//Captures the data using an on-click
+  	$("#add-btn").on("click", function(event) {
+
+  	  //preventing the form from auto-submitting	
+      event.preventDefault();
+
+      //new variable that will hold the information
+      var newComfortFood = {
+        name: $("#food_name").val().trim(),
+      };
+
+      //posting to the api
+      $.post("/api/new", newComfortFood)
+      .then(function(data) {
+        console.log(data);
+
+        if (data) {
+          alert("Your entry made it to the  comfort food list!");
+        }
+
+      });
+    });
+
+        
+
 
 </script>
 
