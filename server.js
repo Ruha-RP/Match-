@@ -15,14 +15,17 @@ app.use(bodyParser.json());
 app.use(bodyParser.text());
 app.use(bodyParser.json({ type: "application/vnd.api+json" }));
 
-//checking route:
-app.get("/", function(req,res) {
-	res.send("Hello World!")
-});
 
 //=================
 //LISTENING TO PORT
 //=================
 app.listen(PORT, function() {
 	console.log("App listening on PORT " + PORT);
-})
+});
+
+
+//======
+//ROUTES
+//======
+
+require("./app/routing/htmlRoutes.js")(app);
