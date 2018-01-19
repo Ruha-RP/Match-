@@ -55,7 +55,7 @@
 <div class="row">
 	<div class="col s12 m12">
 		<div class="input-field col s12">
-		    <select>
+		    <select id="savoury">
 		      <option value="" disabled selected>Choose your option</option>
 		      <option value="1">1 (Not at all!)</option>
 		      <option value="2">2</option>
@@ -66,7 +66,7 @@
 		    <label>How Savoury is the dish?</label>
 		</div>
 		<div class="input-field col s12">
-		    <select>
+		    <select id="sweet">
 		      <option value="" disabled selected>Choose your option</option>
 		      <option value="1">1 (Not at all!)</option>
 		      <option value="2">2</option>
@@ -77,7 +77,7 @@
 		    <label>How Sweet is the dish?</label>
 		</div>
 		<div class="input-field col s12">
-		    <select>
+		    <select id="spicy">
 		      <option value="" disabled selected>Choose your option</option>
 		      <option value="1">1 (Not at all!)</option>
 		      <option value="2">2</option>
@@ -88,7 +88,7 @@
 		    <label>How Spicy is the dish?</label>
 		</div>
 		<div class="input-field col s12">
-		    <select>
+		    <select id="fatty">
 		      <option value="" disabled selected>Choose your option</option>
 		      <option value="1">1 (Not at all!)</option>
 		      <option value="2">2</option>
@@ -99,7 +99,7 @@
 		    <label>How Fattening is the dish?</label>
 		</div>
 		<div class="input-field col s12">
-		    <select>
+		    <select id="aromatic">
 		      <option value="" disabled selected>Choose your option</option>
 		      <option value="1">1 (Not at all!)</option>
 		      <option value="2">2</option>
@@ -110,7 +110,7 @@
 		    <label>How Aromatic is the dish?</label>
 		</div>
 		<div class="input-field col s12">
-		    <select>
+		    <select id="cheese">
 		      <option value="" disabled selected>Choose your option</option>
 		      <option value="1">1 (Not at all!)</option>
 		      <option value="2">2</option>
@@ -121,7 +121,7 @@
 		    <label>How much Cheese is in the dish?</label>
 		</div>
 		<div class="input-field col s12">
-		    <select>
+		    <select id="warmth">
 		      <option value="" disabled selected>Choose your option</option>
 		      <option value="1">1 (Not at all!)</option>
 		      <option value="2">2</option>
@@ -132,7 +132,7 @@
 		    <label>How much Warmth does the dish give?</label>
 		</div>
 		<div class="input-field col s12">
-		    <select>
+		    <select id="refreshing">
 		      <option value="" disabled selected>Choose your option</option>
 		      <option value="1">1 (Not at all!)</option>
 		      <option value="2">2</option>
@@ -143,7 +143,7 @@
 		    <label>How Refreshing is the dish?</label>
 		</div>
 		<div class="input-field col s12">
-		    <select>
+		    <select id="nostalgic">
 		      <option value="" disabled selected>Choose your option</option>
 		      <option value="1">1 (Not at all!)</option>
 		      <option value="2">2</option>
@@ -154,7 +154,7 @@
 		    <label>How Nostalgic is the dish? (E.g childhood favorite, Homecooked meal)</label>
 		</div>
 		<div class="input-field col s12">
-		    <select>
+		    <select id="difficulty">
 		      <option value="" disabled selected>Choose your option</option>
 		      <option value="1">1 (Not at all!)</option>
 		      <option value="2">2</option>
@@ -206,10 +206,25 @@
   	  //preventing the form from auto-submitting	
       event.preventDefault();
 
+    
       //new variable that will hold the information
       var newComfortFood = {
-        name: $("#food_name").val().trim(),
+        name: $("#food_name").val(),
+  		// picture: $("#food_photo").val(),
+  		scores: [
+  			parseInt($("#savoury").val()),
+  			$("#sweet").val(),
+  			$("#spicy").val(),
+  			$("#fatty").val(),
+  			$("#aromatic").val(),
+  			$("#cheese").val(),
+  			$("#warmth").val(),
+  			$("#refreshing").val(),
+  			$("#nostalgic").val(),
+  			$("#difficulty").val(),
+  		]
       };
+
 
       //posting to the api
       $.post("/api/new", newComfortFood)
@@ -217,7 +232,7 @@
         console.log(data);
 
         if (data) {
-          alert("Your entry made it to the  comfort food list!");
+          alert("Your entry made it to the comfort food list!");
         }
 
       });
